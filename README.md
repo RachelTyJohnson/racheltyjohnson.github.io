@@ -1,2 +1,2 @@
-# treehouse-fewd-project9
-Treehouse FEWD Project 9 - Capstone Portfolio
+# Treehouse Fewd Project 9
+## Treehouse FEWD Project 9 - Capstone Portfolio
