@@ -9,6 +9,9 @@
   &:focus {
     outline:0;
   }
+  &::selection{
+    background-color:transparent;
+  }
 
 }
 
