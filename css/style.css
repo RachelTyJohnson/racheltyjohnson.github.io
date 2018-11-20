@@ -4,6 +4,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
   font-family: "Roboto Condensed", sans-serif;
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -30,18 +31,16 @@ html {
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-}
-body header {
-  z-index: 1000;
+  min-height: 100vh;
 }
 body main {
   flex-grow: 1;
 }
-body main #home, body main #about, body main #work {
+
+.homepage main #home, .homepage main #about, .homepage main #work {
   min-height: 100vh;
 }
-body main #home {
+.homepage main #home {
   background-color: #245240;
   background-image: url("../img/background.jpg");
   background-size: cover;
@@ -52,37 +51,37 @@ body main #home {
   justify-content: center;
   text-align: center;
 }
-body main #home h1 {
+.homepage main #home h1 {
   font-size: 3em;
 }
-body main #home h2 {
+.homepage main #home h2 {
   font-size: 1.5rem;
   font-weight: 300;
 }
-body main #home .intronav {
+.homepage main #home .intronav {
   position: absolute;
   bottom: 100px;
 }
-body main #home .intronav a {
+.homepage main #home .intronav a {
   color: #f2f2f2;
   text-decoration: none;
   margin: 0 10px;
   font-size: 1.2rem;
 }
-body main #home img {
+.homepage main #home img {
   height: 15px;
   margin-top: 30px;
   position: absolute;
   bottom: 50px;
 }
-body main #about {
+.homepage main #about {
   display: flex;
   flex-direction: column;
 }
-body main #about p {
+.homepage main #about p {
   margin-top: 10px;
 }
-body main #about div {
+.homepage main #about div {
   flex-grow: 1;
   padding: 10px;
   display: flex;
@@ -91,49 +90,49 @@ body main #about div {
   align-items: center;
   text-align: center;
 }
-body main #about .designer {
+.homepage main #about .designer {
   background-color: #f2f2f2;
   color: #76af3e;
 }
-body main #about .developer {
+.homepage main #about .developer {
   background-color: #76af3e;
   color: #f2f2f2;
 }
-body main #work {
+.homepage main #work {
   background-image: url("../img/background.jpg");
   background-size: cover;
   color: white;
   padding: 25px 5px;
-  position: relative;
 }
-body main #work h1 {
+.homepage main #work h1 {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-body main #work a {
+.homepage main #work a {
   margin-top: 25px;
   color: #f2f2f2;
   text-decoration: none;
   font-size: 1.2rem;
 }
-body main #work .work-container {
+
+.work-container {
+  padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-body main #work .work-container .work-card {
-  display: none;
+.work-container.work-page {
+  margin-bottom: 30px;
+}
+.work-container .work-card {
   position: relative;
   width: 90%;
 }
-body main #work .work-container .work-card:nth-of-type(1), body main #work .work-container .work-card:nth-of-type(2), body main #work .work-container .work-card:nth-of-type(3) {
-  display: block;
-}
-body main #work .work-container .work-card + .work-card {
+.work-container .work-card + .work-card {
   margin-top: 25px;
 }
-body main #work .work-container .work-card::after {
+.work-container .work-card::after {
   content: "";
   background-image: url(../img/tree.svg);
   background-repeat: no-repeat;
@@ -145,20 +144,20 @@ body main #work .work-container .work-card::after {
   left: -15px;
   z-index: 50;
 }
-body main #work .work-container .work-card .work-card-overflow {
+.work-container .work-card .work-card-overflow {
   width: 100%;
   height: 13rem;
   position: relative;
   overflow: hidden;
 }
-body main #work .work-container .work-card .work-card-overflow:hover img {
+.work-container .work-card .work-card-overflow:hover img {
   transform: scale(1.05);
 }
-body main #work .work-container .work-card .work-card-overflow img {
+.work-container .work-card .work-card-overflow img {
   width: 100%;
   transition: transform 0.3s ease-in-out;
 }
-body main #work .work-container .work-card .work-card-overflow span {
+.work-container .work-card .work-card-overflow span {
   display: block;
   background-color: #263238;
   color: white;
@@ -169,24 +168,107 @@ body main #work .work-container .work-card .work-card-overflow span {
   bottom: -1px;
   width: 100%;
 }
-body footer {
+
+.standardpage {
+  color: white;
+  background-image: url("../img/background.jpg");
+}
+.standardpage header {
+  color: #f2f2f2;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.standardpage header a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+.standardpage header nav a {
+  color: white;
+  text-decoration: none;
+}
+.standardpage header nav a + a {
+  margin-left: 10px;
+}
+.standardpage main h1 {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.singleworkpage main {
+  padding: 15px;
+}
+.singleworkpage main .tree {
+  height: 30px;
+  margin-top: 10px;
+}
+.singleworkpage main h1 {
+  font-weight: 700;
+  line-height: 1;
+}
+.singleworkpage main .single-skills {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.singleworkpage main .single-skills ul li {
+  display: inline-block;
+  margin: 0 5px;
+}
+.singleworkpage main img {
+  width: 100%;
+}
+.singleworkpage main .btn {
+  background-color: #76af3e;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.3em;
+  margin: 20px 0;
+}
+.singleworkpage main p {
+  text-align: center;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+.singleworkpage main span {
+  display: block;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.singleworkpage main span a {
+  color: #f2f2f2;
+  text-decoration: none;
+}
+
+footer {
   background-color: #263238;
   color: white;
   text-align: center;
   padding: 20px 5px 10px;
 }
-body footer h4 {
+footer h4 {
   font-weight: 700;
   font-size: 1.3rem;
 }
-body footer p {
+footer p {
   font-size: 0.8rem;
   margin-top: 20px;
 }
-body footer .footerlinks {
+footer .footerlinks {
   margin-top: 20px;
 }
-body footer .footerlinks img {
+footer .footerlinks img {
   height: 30px;
   margin: 0 10px;
 }
