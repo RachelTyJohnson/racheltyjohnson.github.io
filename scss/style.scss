@@ -66,6 +66,98 @@ body{
         bottom:50px;
       }
     }
+    #about{
+      display:flex;
+      p{
+        margin-top:10px;
+      }
+      flex-direction: column;
+      div{
+        flex-grow:1;
+        padding:10px;
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        text-align:center;
+      }
+      .designer{
+        background-color:$brand-color-neutral-light;
+        color:$brand-color-light;
+      }
+      .developer{
+        background-color:$brand-color-light;
+        color:$brand-color-neutral-light;
+      }
+    }
+    #work{
+      background-image:url('../img/background.jpg');
+      background-size:cover;
+      color:white;
+      padding:10px;
+      position:relative;
+      padding-bottom:40px;
+      h1{
+        text-align:center;
+        margin-top:10px;
+        margin-bottom:20px;
+      }
+      .work-container{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        .work-card{
+          display:none;
+          &:nth-of-type(1),
+          &:nth-of-type(2),
+          &:nth-of-type(3){
+            display:block;
+          }
+          + .work-card{
+            margin-top:25px;
+          }
+          position:relative;
+          width:90%;
+          &::after{
+            content: "";
+            background-image:url(../img/tree.svg);
+            background-repeat: no-repeat;
+            width:40px;
+            height:50px;
+            display:block;
+            position:absolute;
+            top:-15px;
+            left:-15px;
+            z-index:50;
+          }
+          .work-card-overflow{
+            width:100%;
+            height:220px;
+            position:relative;
+            overflow:hidden;
+            &:hover img{
+              transform:scale(1.05);
+            }
+            img{
+              width:100%;
+              transition:transform 0.3s ease-in-out;
+
+            }
+            span{
+              display:block;
+              background-color:$brand-color-dark;
+              color:white;
+              padding:7px;
+              font-size:1.1em;
+              text-align:center;
+              position:absolute;
+              bottom:0;
+              width:100%;
+            }
+          }
+        }
+      }
+    }
   }
   footer{
     background-color:$brand-color-dark;
