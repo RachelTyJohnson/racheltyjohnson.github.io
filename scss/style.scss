@@ -5,6 +5,7 @@
   margin: 0;
   font-family:$brand-font;
   -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
   &:focus {
     outline:0;
   }
