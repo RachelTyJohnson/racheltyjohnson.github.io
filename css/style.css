@@ -16,6 +16,33 @@
   background-color: transparent;
 }
 
+.hidden-mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hidden-mobile {
+    display: block;
+  }
+}
+
+.hidden-tablet {
+  display: none;
+}
+@media (min-width: 1024px) {
+  .hidden-tablet {
+    display: block;
+  }
+}
+
+.hidden-desktop {
+  display: block;
+}
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none;
+  }
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
@@ -52,11 +79,16 @@ body main {
   text-align: center;
 }
 .homepage main #home h1 {
-  font-size: 3em;
+  font-size: 3rem;
 }
 @media (min-width: 768px) {
   .homepage main #home h1 {
-    font-size: 6em;
+    font-size: 6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage main #home h1 {
+    font-size: 7.5rem;
   }
 }
 .homepage main #home h2 {
@@ -90,8 +122,15 @@ body main {
   bottom: 50px;
 }
 .homepage main #about {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
   flex-direction: column;
+}
+@media (min-width: 1024px) {
+  .homepage main #about {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 .homepage main #about p {
   margin-top: 10px;
@@ -109,25 +148,60 @@ body main {
   justify-content: center;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 @media (min-width: 768px) {
   .homepage main #about .designer, .homepage main #about .developer {
-    padding: 60px;
+    padding: 100px;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage main #about .designer p, .homepage main #about .developer p {
+    width: 75%;
   }
 }
 .homepage main #about .designer {
   background-color: #f2f2f2;
   color: #76af3e;
 }
+@media (min-width: 1024px) {
+  .homepage main #about .designer {
+    text-align: left;
+    align-items: flex-start;
+  }
+  .homepage main #about .designer::after {
+    content: url("../img/tree-designer.png");
+    position: absolute;
+    right: 0;
+  }
+}
 .homepage main #about .developer {
   background-color: #76af3e;
   color: #f2f2f2;
 }
+@media (min-width: 1024px) {
+  .homepage main #about .developer {
+    text-align: right;
+    align-items: flex-end;
+  }
+  .homepage main #about .developer::after {
+    content: url("../img/tree-developer.png");
+    position: absolute;
+    left: 0;
+  }
+}
 .homepage main #work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background-image: url("../img/background.jpg");
   background-size: cover;
   color: white;
   padding: 25px 5px;
+}
+.homepage main #work div {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 .homepage main #work h1 {
   text-align: center;
@@ -136,7 +210,14 @@ body main {
 }
 @media (min-width: 768px) {
   .homepage main #work h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .homepage main #work h1 {
+    font-size: 3rem;
+    margin-top: 30px;
+    margin-bottom: 40px;
   }
 }
 
@@ -154,6 +235,11 @@ body main {
 @media (min-width: 768px) {
   .work-container {
     grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1024px) {
+  .work-container {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 .work-container .work-card {
@@ -228,14 +314,14 @@ body main {
 .standardpage {
   color: white;
   background-image: url("../img/background.jpg");
+  background-size: cover;
 }
 .standardpage header {
   color: #f2f2f2;
   background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 20px;
+}
+.standardpage header h1 {
+  content: "TEALFOREST";
 }
 .standardpage header a {
   color: #f2f2f2;
@@ -246,17 +332,35 @@ body main {
     font-size: 1.6rem;
   }
 }
-.standardpage header nav a {
+@media (min-width: 1024px) {
+  .standardpage header a {
+    font-size: 1.3rem;
+  }
+}
+.standardpage header > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+.standardpage header > div nav a {
   color: white;
   text-decoration: none;
 }
-.standardpage header nav a + a {
+.standardpage header > div nav a + a {
   margin-left: 10px;
 }
 @media (min-width: 768px) {
-  .standardpage header nav a + a {
+  .standardpage header > div nav a + a {
     margin-left: 20px;
   }
+}
+.standardpage main {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding-bottom: 30px;
 }
 .standardpage main h1 {
   text-align: center;
@@ -362,6 +466,11 @@ body main {
   }
 }
 
+.work-page {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
 footer {
   background-color: #263238;
   color: white;
@@ -388,7 +497,7 @@ footer p {
 }
 @media (min-width: 768px) {
   footer p {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 footer .footerlinks {

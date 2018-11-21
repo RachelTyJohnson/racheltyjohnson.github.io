@@ -16,6 +16,27 @@
 
 }
 
+.hidden-mobile{
+  display:none;
+  @include tablet{
+    display:block;
+  }
+}
+
+.hidden-tablet{
+  display:none;
+  @include desktop{
+    display:block;
+  }
+}
+
+.hidden-desktop{
+  display:block;
+  @include desktop{
+    display:none;
+  }
+}
+
 h1, h2, h3, h4, h5, h6{
   font-weight:$font-regular;
 }
@@ -53,9 +74,12 @@ body{
       justify-content: center;
       text-align:center;
       h1{
-        font-size:3em;
+        font-size:3rem;
         @include tablet{
-          font-size:6em;
+          font-size:6rem;
+        }
+        @include desktop{
+          font-size:7.5rem;
         }
       }
       h2{
@@ -86,8 +110,11 @@ body{
       }
     }
     #about{
-      display:flex;
-      @include tablet{
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+      @include desktop{
+        grid-template-columns:1fr 1fr;
       }
       p{
         margin-top:10px;
@@ -104,22 +131,53 @@ body{
         justify-content:center;
         align-items: center;
         text-align:center;
+        position:relative;
       }
       .designer, .developer{
         @include tablet{
-          padding:60px;
+          padding:100px;
+        }
+        @include desktop{
+          p{
+            width:75%;
+          }
         }
       }
       .designer{
         background-color:$brand-color-neutral-light;
         color:$brand-color-light;
+        @include desktop{
+          text-align:left;
+          align-items: flex-start;
+          &::after{
+            content:url('../img/tree-designer.png');
+            position:absolute;
+            right:0;
+          }
+        }
       }
       .developer{
         background-color:$brand-color-light;
         color:$brand-color-neutral-light;
+        @include desktop{
+          text-align:right;
+          align-items: flex-end;
+          &::after{
+            content:url('../img/tree-developer.png');
+            position:absolute;
+            left:0;
+          }
+        }
       }
     }
     #work{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      div{
+        max-width:1024px;
+        margin: 0 auto;
+      }
       background-image:url('../img/background.jpg');
       background-size:cover;
       color:white;
@@ -129,7 +187,12 @@ body{
         margin-top:10px;
         margin-bottom:20px;
         @include tablet{
-          font-size:2.5em;
+          font-size:2.5rem;
+        }
+        @include desktop{
+          font-size:3rem;
+          margin-top:30px;
+          margin-bottom:40px;
         }
       }
     }
@@ -147,6 +210,9 @@ body{
   grid-auto-rows: auto;
   @include tablet{
     grid-template-columns:1fr 1fr;
+  }
+  @include desktop{
+    grid-template-columns:1fr 1fr 1fr;
   }
   align-items: center;
   .work-card{
@@ -217,32 +283,46 @@ body{
 .standardpage{
   color:white;
   background-image:url('../img/background.jpg');
+  background-size:cover;
   header{
+    h1{
+      content:"TEALFOREST";
+    }
     a{
       color:$brand-color-neutral-light;
       text-decoration: none;
       @include tablet{
         font-size:1.6rem;
       }
+      @include desktop{
+        font-size: 1.3rem;
+      }
     }
     color:$brand-color-neutral-light;
     background-color:rgba(0,0,0,0.8);
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    padding:5px 20px;
-    nav a{
-      color:white;
-      text-decoration: none;
-      &+a{
-        margin-left:10px;
-        @include tablet{
-          margin-left:20px;
+    >div{
+      max-width:1200px;
+      margin: 0 auto;
+      display:flex;
+      justify-content:space-between;
+      align-items: center;
+      padding:5px 20px;
+      nav a{
+        color:white;
+        text-decoration: none;
+        &+a{
+          margin-left:10px;
+          @include tablet{
+            margin-left:20px;
+          }
         }
       }
     }
   }
   main{
+    max-width:1024px;
+    margin: 0 auto;
+    padding-bottom:30px;
     h1{
       text-align:center;
       color:white;
@@ -256,6 +336,8 @@ body{
     }
   }
 }
+
+
 .singleworkpage{
   main{
     padding:15px;
@@ -337,6 +419,12 @@ body{
 }
 
 
+.work-page{
+  max-width:1024px;
+  margin:0 auto;
+}
+
+
 footer{
   background-color:$brand-color-dark;
   color:white;
@@ -358,7 +446,7 @@ footer{
     font-size:0.8rem;
     margin-top:20px;
     @include tablet{
-      font-size:1rem;
+      font-size:0.9rem;
     }
   }
   .footerlinks{
