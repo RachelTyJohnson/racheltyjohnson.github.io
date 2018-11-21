@@ -37,55 +37,8 @@
     <div id="work">
       <div>
         <h1>FEATURED <strong>TREES</strong></h1>
-        <div class="work-container">
-          <div class="work-card">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
-          <div class="work-card">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
-          <div class="work-card hidden-mobile">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
-          <div class="work-card hidden-mobile">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
-          <div class="work-card hidden-tablet">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
-          <div class="work-card hidden-tablet">
-            <div class="work-card-overflow">
-              <a href="#work">
-                <img src="img/mark.jpg" />
-                <span>Johnson Music School</span>
-              </a>
-            </div>
-          </div>
+        <div class="work-container mainPageWork">
+
         </div>
         <a class="toforest" href="work.html">
           <h5>explore the forest &#62;</h5>
@@ -104,7 +57,34 @@
     </div>
     <p>Created and tended to by Rachel Johnson</p>
   </footer>
-  <script src="js/script.js"></script>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="js/portfolioitems.js"></script>
+  <script>
+    let mainPageWork = document.querySelector('.mainPageWork');
+    for (let i = 0; i < 4; i++) {
+      let additionalClass = "";
+      if (i > 0) {
+        additionalClass += " hidden-mobile";
+      }
+      if (i == 3) {
+        additionalClass += " hidden-desktop";
+      }
+      let workCardHTML =
+        `
+        <div class="work-card ${additionalClass}" data-tags="${portfolioItems[i].projectTags}" >
+          <div class="work-card-overflow">
+            <a href="works/${portfolioItems[i].projectSlug}.html">
+              <img src="${portfolioItems[i].projectThumb}" />
+              <span>${portfolioItems[i].projectName}</span>
+            </a>
+          </div>
+        </div>
+        `;
+      mainPageWork.insertAdjacentHTML('beforeend', workCardHTML);
+    };
+  </script>
 
 </body>
 

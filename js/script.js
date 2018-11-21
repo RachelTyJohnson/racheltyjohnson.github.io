@@ -35,6 +35,7 @@ for (let i=0; i<portfolioItems.length; i++){
   `;
   workpage.insertAdjacentHTML('beforeend',workCardHTML);
 };
+
 /*
 <div class="work-card" data-tags="tagshere" >
   <div class="work-card-overflow">

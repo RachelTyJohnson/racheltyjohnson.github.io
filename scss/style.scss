@@ -396,6 +396,7 @@ body{
       }
     }
     .single-skills{
+      text-transform: uppercase;
       display:flex;
       text-align:center;
       justify-content: center;
@@ -407,7 +408,7 @@ body{
       ul{
         li{
           display:inline-block;
-          margin:0 5px;
+          margin:0 15px;
         }
       }
     }

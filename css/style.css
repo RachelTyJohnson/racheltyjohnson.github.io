@@ -438,6 +438,7 @@ body main {
   }
 }
 .singleworkpage main .single-skills {
+  text-transform: uppercase;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -451,7 +452,7 @@ body main {
 }
 .singleworkpage main .single-skills ul li {
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 15px;
 }
 .singleworkpage main img {
   width: 100%;
