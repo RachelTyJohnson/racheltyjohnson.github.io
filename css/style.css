@@ -54,9 +54,19 @@ body main {
 .homepage main #home h1 {
   font-size: 3em;
 }
+@media (min-width: 768px) {
+  .homepage main #home h1 {
+    font-size: 6em;
+  }
+}
 .homepage main #home h2 {
   font-size: 1.5rem;
   font-weight: 300;
+}
+@media (min-width: 768px) {
+  .homepage main #home h2 {
+    font-size: 3em;
+  }
 }
 .homepage main #home .intronav {
   position: absolute;
@@ -67,6 +77,11 @@ body main {
   text-decoration: none;
   margin: 0 10px;
   font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  .homepage main #home .intronav a {
+    font-size: 2em;
+  }
 }
 .homepage main #home img {
   height: 15px;
@@ -81,6 +96,11 @@ body main {
 .homepage main #about p {
   margin-top: 10px;
 }
+@media (min-width: 768px) {
+  .homepage main #about p {
+    font-size: 1.3rem;
+  }
+}
 .homepage main #about div {
   flex-grow: 1;
   padding: 10px;
@@ -89,6 +109,11 @@ body main {
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+@media (min-width: 768px) {
+  .homepage main #about .designer, .homepage main #about .developer {
+    padding: 60px;
+  }
 }
 .homepage main #about .designer {
   background-color: #f2f2f2;
@@ -109,28 +134,32 @@ body main {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-.homepage main #work a {
-  margin-top: 25px;
-  color: #f2f2f2;
-  text-decoration: none;
-  font-size: 1.2rem;
+@media (min-width: 768px) {
+  .homepage main #work h1 {
+    font-size: 2.5em;
+  }
 }
 
 .work-container {
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
+  padding: 5px 20px;
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
   align-items: center;
 }
 .work-container.work-page {
   margin-bottom: 30px;
 }
+@media (min-width: 768px) {
+  .work-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 .work-container .work-card {
   position: relative;
-  width: 90%;
-}
-.work-container .work-card + .work-card {
-  margin-top: 25px;
+  width: 100%;
+  margin: 0 auto;
 }
 .work-container .work-card::after {
   content: "";
@@ -150,6 +179,11 @@ body main {
   position: relative;
   overflow: hidden;
 }
+@media (min-width: 768px) {
+  .work-container .work-card .work-card-overflow {
+    height: 18rem;
+  }
+}
 .work-container .work-card .work-card-overflow:hover img {
   transform: scale(1.05);
 }
@@ -162,11 +196,33 @@ body main {
   background-color: #263238;
   color: white;
   padding: 7px;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   text-align: center;
   position: absolute;
   bottom: -1px;
   width: 100%;
+}
+@media (min-width: 768px) {
+  .work-container .work-card .work-card-overflow span {
+    font-size: 1.4rem;
+    padding: 10px;
+  }
+}
+
+.toforest {
+  display: block;
+  text-align: center;
+  margin-top: 25px;
+  color: #f2f2f2;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+@media (min-width: 768px) {
+  .toforest {
+    font-size: 2rem;
+    margin-top: 55px;
+    margin-bottom: 35px;
+  }
 }
 
 .standardpage {
@@ -185,6 +241,11 @@ body main {
   color: #f2f2f2;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .standardpage header a {
+    font-size: 1.6rem;
+  }
+}
 .standardpage header nav a {
   color: white;
   text-decoration: none;
@@ -192,29 +253,63 @@ body main {
 .standardpage header nav a + a {
   margin-left: 10px;
 }
+@media (min-width: 768px) {
+  .standardpage header nav a + a {
+    margin-left: 20px;
+  }
+}
 .standardpage main h1 {
   text-align: center;
   color: white;
   margin-top: 20px;
   margin-bottom: 20px;
 }
+@media (min-width: 768px) {
+  .standardpage main h1 {
+    font-size: 3.5rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
 
 .singleworkpage main {
   padding: 15px;
+}
+@media (min-width: 768px) {
+  .singleworkpage main {
+    padding: 15px 40px;
+  }
 }
 .singleworkpage main .tree {
   height: 30px;
   margin-top: 10px;
 }
+@media (min-width: 768px) {
+  .singleworkpage main .tree {
+    height: 50px;
+  }
+}
 .singleworkpage main h1 {
   font-weight: 700;
   line-height: 1;
+}
+@media (min-width: 768px) {
+  .singleworkpage main h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 .singleworkpage main .single-skills {
   display: flex;
   text-align: center;
   justify-content: center;
   margin-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .singleworkpage main .single-skills {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+  }
 }
 .singleworkpage main .single-skills ul li {
   display: inline-block;
@@ -232,13 +327,24 @@ body main {
   display: block;
   text-decoration: none;
   font-weight: 700;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   margin: 20px 0;
+}
+@media (min-width: 768px) {
+  .singleworkpage main .btn {
+    font-size: 1.8rem;
+    padding: 20px;
+  }
 }
 .singleworkpage main p {
   text-align: center;
   margin-bottom: 15px;
   line-height: 1.5;
+}
+@media (min-width: 768px) {
+  .singleworkpage main p {
+    font-size: 1.2rem;
+  }
 }
 .singleworkpage main span {
   display: block;
@@ -250,6 +356,11 @@ body main {
   color: #f2f2f2;
   text-decoration: none;
 }
+@media (min-width: 768px) {
+  .singleworkpage main span {
+    font-size: 1.4rem;
+  }
+}
 
 footer {
   background-color: #263238;
@@ -257,13 +368,28 @@ footer {
   text-align: center;
   padding: 20px 5px 10px;
 }
+@media (min-width: 768px) {
+  footer h5 {
+    font-size: 1.2rem;
+  }
+}
 footer h4 {
   font-weight: 700;
   font-size: 1.3rem;
 }
+@media (min-width: 768px) {
+  footer h4 {
+    font-size: 2rem;
+  }
+}
 footer p {
   font-size: 0.8rem;
   margin-top: 20px;
+}
+@media (min-width: 768px) {
+  footer p {
+    font-size: 1rem;
+  }
 }
 footer .footerlinks {
   margin-top: 20px;
@@ -271,6 +397,12 @@ footer .footerlinks {
 footer .footerlinks img {
   height: 30px;
   margin: 0 10px;
+}
+@media (min-width: 768px) {
+  footer .footerlinks img {
+    height: 40px;
+    margin: 0 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
