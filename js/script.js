@@ -27,14 +27,14 @@ for (let i=0; i<portfolioItems.length; i++){
   <div class="work-card" data-tags="${portfolioItems[i].projectTags}" >
     <div class="work-card-overflow">
       <a href="works/${portfolioItems[i].projectSlug}.html">
-        <img src="${portfolioItems[i].projectThumb}" />
+        <img src="${portfolioItems[i].projectThumb}" alt="${portfolioItems[i].projectName}" />
         <span>${portfolioItems[i].projectName}</span>
       </a>
     </div>
   </div>
   `;
   workpage.insertAdjacentHTML('beforeend',workCardHTML);
-};
+}
 
 /*
 <div class="work-card" data-tags="tagshere" >

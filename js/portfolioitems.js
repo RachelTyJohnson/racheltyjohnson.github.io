@@ -86,14 +86,17 @@ let portfolioItems = [
 function setPageContent(pageIndex){
   $('.projectName').text(`${portfolioItems[pageIndex].projectName}`);
   $('.projectImage').attr('src', `../${portfolioItems[pageIndex].projectImage}`);
+  $('.projectImage').attr('alt', `${portfolioItems[pageIndex].projectName}`);
   $('.projectLink').attr('href', `${portfolioItems[pageIndex].projectURL}`);
   if ( portfolioItems[pageIndex].projectURL.includes('github') ) {
     $('.btn.projectLink').text(`VIEW GITHUB REPO`);
+  } else {
+    $('.btn.projectLink').text(`VIEW LIVE SITE`);
   }
   $('.projectDescription').html(`${portfolioItems[pageIndex].projectDescription}`);
   let skills = portfolioItems[pageIndex].projectTags.split(",");
   $.each(skills, function(index,value){
     if (skills[index]==="htmlcss"){skills[index]="html/css";}
-    $('.single-skills ul').append(`<li>${skills[index]}</li>`)
+    $('.single-skills ul').append(`<li>${skills[index]}</li>`);
   });
 }
