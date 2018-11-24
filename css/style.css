@@ -43,7 +43,12 @@
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 400;
 }
 
@@ -64,7 +69,9 @@ body main {
   flex-grow: 1;
 }
 
-.homepage main #home, .homepage main #about, .homepage main #work {
+.homepage main #about,
+.homepage main #home,
+.homepage main #work {
   min-height: 100vh;
 }
 .homepage main #home {
@@ -154,12 +161,14 @@ body main {
   position: relative;
 }
 @media (min-width: 550px) {
-  .homepage main #about .designer, .homepage main #about .developer {
+  .homepage main #about .designer,
+.homepage main #about .developer {
     padding: 100px;
   }
 }
 @media (min-width: 1024px) {
-  .homepage main #about .designer p, .homepage main #about .developer p {
+  .homepage main #about .designer p,
+.homepage main #about .developer p {
     width: 75%;
   }
 }
@@ -176,6 +185,7 @@ body main {
     content: url("../img/tree-designer.png");
     position: absolute;
     right: 0;
+    transition: 0.3s transform;
   }
 }
 .homepage main #about .developer {
@@ -238,6 +248,7 @@ body main {
   padding: 5px 10px;
   cursor: pointer;
   border: 1px transparent solid;
+  transition: 0.3s border;
 }
 .filtercards li:hover {
   border: 1px #f2f2f2 solid;
@@ -276,7 +287,7 @@ body main {
 }
 .work-container .work-card::after {
   content: "";
-  background-image: url(../img/tree.svg);
+  background-image: url("../img/tree.svg");
   background-repeat: no-repeat;
   width: 40px;
   height: 50px;
@@ -333,6 +344,11 @@ body main {
   color: #f2f2f2;
   text-decoration: none;
   font-size: 1.2rem;
+  transition: opacity 0.3s;
+  opacity: 0.8;
+}
+.toforest:hover {
+  opacity: 1;
 }
 @media (min-width: 550px) {
   .toforest {
@@ -380,8 +396,13 @@ body main {
   padding: 5px 20px;
 }
 .standardpage header > div nav a {
-  color: white;
+  color: #f2f2f2;
+  opacity: 0.8;
+  transition: 0.3s opacity;
   text-decoration: none;
+}
+.standardpage header > div nav a:hover {
+  opacity: 1;
 }
 .standardpage header > div nav a + a {
   margin-left: 10px;
@@ -494,6 +515,11 @@ body main {
 .singleworkpage main span a {
   color: #f2f2f2;
   text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.singleworkpage main span a:hover {
+  opacity: 1;
 }
 @media (min-width: 550px) {
   .singleworkpage main span {
@@ -541,12 +567,19 @@ footer .footerlinks {
 footer .footerlinks img {
   height: 30px;
   margin: 0 10px;
+  opacity: 0.6;
+  transition-property: transform, opacity;
+  transition-duration: 0.3s;
 }
 @media (min-width: 550px) {
   footer .footerlinks img {
     height: 40px;
     margin: 0 20px;
   }
+}
+footer .footerlinks img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
