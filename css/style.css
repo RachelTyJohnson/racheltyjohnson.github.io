@@ -119,6 +119,11 @@ body main {
   text-decoration: none;
   margin: 0 10px;
   font-size: 1.2rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.homepage main #home .intronav a:hover {
+  opacity: 1;
 }
 @media (min-width: 550px) {
   .homepage main #home .intronav a {
